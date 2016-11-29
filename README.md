@@ -8,7 +8,7 @@
 
 ### Use case #1
 
-This dynamic, not statically type-safe but more convenient way uses modern Objective-C subscripting syntac using string keys. The class implements `+ objectForKeyedSubscript:` and `+setObject:forKeyedSubscript:`, so you can use it as if it was a dictionary. For example:
+This dynamic, not statically type-safe but more convenient way uses modern Objective-C subscripting syntax using string keys. The class implements `+ objectForKeyedSubscript:` and `+setObject:forKeyedSubscript:`, so you can use it as if it was a dictionary. For example:
 
 ```
 HCKeychainManager.self[@"foo"] = @"bar";
@@ -32,3 +32,5 @@ If you are done, recompile the class, and it will automatically handle each prop
 HCKeychainManager.foo = @"secret text";
 NSLog(@"%@", HCKeychainManager.foo);
 ```
+
+Whether you are using the dynamically-typed or the statically-typed API, setting a property or subscripted object to `nil` will result in its removal from the Keychain. Removed or nonexistent items will be returned as `nil`, too.
